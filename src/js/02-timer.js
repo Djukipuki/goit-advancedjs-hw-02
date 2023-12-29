@@ -26,8 +26,6 @@ const onClose = (selectedDates) => {
       position: "topRight",
     });
 
-    startBtn.disabled = true;
-
     return;
   }
 
@@ -92,6 +90,8 @@ const addLeadingZero = (value) => {
 
 const resetTimer = () => {
   clearInterval(timerId);
+
+  startBtn.disabled = true;
 
   days.textContent = DEFAULT_TIME;
   hours.textContent = DEFAULT_TIME;

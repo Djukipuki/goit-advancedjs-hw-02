@@ -38,14 +38,14 @@ form.addEventListener('submit', handleSubmit);
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
 
-  const promiseResponse = { position, delay };
+  const response = { position, delay };
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {
-        resolve(promiseResponse);
+        resolve(response);
       } else {
-        reject(promiseResponse);
+        reject(response);
       }
     }, delay);
   });
