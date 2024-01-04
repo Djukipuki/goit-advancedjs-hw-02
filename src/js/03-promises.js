@@ -20,6 +20,8 @@ const handleSubmit = (event) => {
   const step = Number(elements.step.value);
   const amount = Number(elements.amount.value);
 
+  form.reset();
+
   for (let i = 1; i <= amount; i++) {
     createPromise(i, delay)
       .then(({ position, delay }) => iziToast.success({

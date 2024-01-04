@@ -6,6 +6,7 @@ import "izitoast/dist/css/iziToast.min.css";
 const DEFAULT_TIME = '00';
 
 const startBtn = document.querySelector('[data-start]');
+const dateTimeInput = document.getElementById('datetime-picker');
 
 startBtn.disabled = true;
 
@@ -15,8 +16,6 @@ const minutes = document.querySelector('[data-minutes]');
 const seconds = document.querySelector('[data-seconds]');
 
 const onClose = (selectedDates) => {
-  resetTimer();
-
   const selectedTime = selectedDates[0].getTime();
   const currentTime = new Date().getTime();
 
@@ -45,6 +44,9 @@ let finishedTimerAt = 0;
 let timerId = null;
 
 const startTimer = () => {
+  dateTimeInput.disabled = true;
+  startBtn.disabled = true;
+
   timerId = setInterval(() => {
     const currentTime = new Date().getTime();
 
@@ -91,7 +93,7 @@ const addLeadingZero = (value) => {
 const resetTimer = () => {
   clearInterval(timerId);
 
-  startBtn.disabled = true;
+  dateTimeInput.disabled = false;
 
   days.textContent = DEFAULT_TIME;
   hours.textContent = DEFAULT_TIME;
